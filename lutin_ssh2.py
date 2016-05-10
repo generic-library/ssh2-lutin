@@ -61,10 +61,11 @@ def create(target, module_name):
 	my_module.add_module_depend('z')
 	my_module.add_module_depend('openssl')
 	my_module.add_path(os.path.join(tools.get_current_path(__file__), "ssh2", "src"))
+	my_module.add_path(os.path.join(tools.get_current_path(__file__), "generate"))
 	my_module.add_header_file([
 	    'ssh2/include/libssh2.h',
 	    'ssh2/include/libssh2_publickey.h',
 	    'ssh2/include/libssh2_sftp.h',
 	    ],
-	    destination_path="ssh2")
+	    destination_path="")
 	return my_module
