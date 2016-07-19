@@ -66,6 +66,7 @@ def create(target, module_name):
 	    'ssh2/include/libssh2.h',
 	    'ssh2/include/libssh2_publickey.h',
 	    'ssh2/include/libssh2_sftp.h',
+	    'generate/libssh2_config.h',
 	    ],
 	    destination_path="")
 	return my_module
