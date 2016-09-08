@@ -53,13 +53,13 @@ def create(target, module_name):
 	    'ssh2/src/sftp.c',
 	    'ssh2/src/global.c',
 	    ])
-	my_module.compile_flags('c', [
+	my_module.add_flag('c', [
 	    '-DLIBSSH2_DH_GEX_NEW=1',
 	    '-DLIBSSH2_OPENSSL',
 	    ])
 	my_module.compile_version("c", 1989)
-	my_module.add_module_depend('z')
-	my_module.add_module_depend('openssl')
+	my_module.add_depend('z')
+	my_module.add_depend('openssl')
 	my_module.add_path(os.path.join(tools.get_current_path(__file__), "ssh2", "src"))
 	my_module.add_path(os.path.join(tools.get_current_path(__file__), "generate"))
 	my_module.add_header_file([
