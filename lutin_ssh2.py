@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import lutin.module as module
+import lutin.debug as debug
 import lutin.tools as tools
 import os
 
@@ -25,8 +25,7 @@ def get_maintainer():
 def get_version():
 	return [1,7,0]
 
-def create(target, module_name):
-	my_module = module.Module(__file__, module_name, get_type())
+def configure(target, my_module):
 	my_module.add_src_file([
 	    'ssh2/src/crypt.c',
 	    'ssh2/src/keepalive.c',
@@ -60,8 +59,8 @@ def create(target, module_name):
 	my_module.compile_version("c", 1989)
 	my_module.add_depend('z')
 	my_module.add_depend('openssl')
-	my_module.add_path(os.path.join(tools.get_current_path(__file__), "ssh2", "src"))
-	my_module.add_path(os.path.join(tools.get_current_path(__file__), "generate"))
+	my_module.add_path("ssh2/src")
+	my_module.add_path("generate")
 	my_module.add_header_file([
 	    'ssh2/include/libssh2.h',
 	    'ssh2/include/libssh2_publickey.h',
@@ -69,4 +68,4 @@ def create(target, module_name):
 	    'generate/libssh2_config.h',
 	    ],
 	    destination_path="")
-	return my_module
+	return True
