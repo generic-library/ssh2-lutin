@@ -1,3 +1,3 @@
 [submodule "ssh2"]
 	path = ssh2
-	url = https://github.com/generic-library/ssh2.git
+	url = ../ssh2.git
